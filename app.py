@@ -34,5 +34,10 @@ def predict():
         confidence = f"{1-prediction:.0%}"
     return jsonify({"sentiment": sentiment, "confidence": confidence})
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Railway provides a port, or we use 8080 as a backup
+    port = int(os.environ.get("PORT", 8080))
+    # '0.0.0.0' tells Flask to listen to all public requests
+    app.run(host='0.0.0.0', port=port)
