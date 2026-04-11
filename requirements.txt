@@ -1,3 +1,4 @@
 flask
-tensorflow
+transformers
 numpy
+torch
